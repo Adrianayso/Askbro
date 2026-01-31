@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AskBro</title>
+  <link rel="icon" type="image/png" href="pictures/logo.png">
+  <link rel="stylesheet" href="styles/askbro-guest.css" />
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header class="top-nav">
+    <div class="nav-title">AskBro</div>
+    <nav class="nav-links">
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- MAIN AREA -->
+  <main class="guest-container">
+
+    <!-- CENTERED CHAT SECTION -->
+    <div class="chat-card">   
+
+      <!-- PROMPT TITLE (SUP BROWSKIE!) -->
+       
+      <h1 id="prompt-title">What can I help you with, bro?</h1>
+
+      <!-- CHAT BOX -->
+      <div id="chat-box"></div>
+
+      <!-- INPUT -->
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask me anything..." />
+        <button id="send-btn">Send</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="js/askbro.js"></script>
+</body>
+</html>
+
+
+
