@@ -1,3 +1,19 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBzmCtbUAYH4VhbLj-Shh4SaVkS08KehhA",
+  authDomain: "askbro-f579f.firebaseapp.com",
+  projectId: "askbro-f579f",
+  storageBucket: "askbro-f579f.firebasestorage.app",
+  messagingSenderId: "472432054781",
+  appId: "1:472432054781:web:d0a5f6bc1f09ee1e344994",
+  measurementId: "G-41HEEHVLGF"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const chatBox = document.getElementById("chat-box");
 const input = document.getElementById("userInput");
 const chatHistoryEl = document.getElementById("chatHistory");
@@ -294,21 +310,33 @@ async function sendMessage() {
     loading.replaceWith(aiDiv);
 
 
-    typeMessage(aiDiv, safeReply, () => {
+    typeMessage(aiDiv, safeReply, async () => {
 
-      const aiHTML = `<div class="message ai">${safeReply}</div>`;
+  const aiHTML = `<div class="message ai">${safeReply}</div>`;
 
-      if (currentChat.title === "New Chat") {
-        currentChat.title = userMessage.slice(0, 30);
-      }
-
-      currentChat.messages.push(userHTML, aiHTML);
-
-      localStorage.setItem(storageKey, JSON.stringify(chats));
-
-      renderHistory();
-
+  // SAVE CHAT TO FIREBASE
+  try {
+    await addDoc(collection(db, "chats"), {
+      user: username,
+      message: userMessage,
+      reply: safeReply,
+      time: new Date()
     });
+  } catch (err) {
+    console.error("Firestore save error:", err);
+  }
+
+  if (currentChat.title === "New Chat") {
+    currentChat.title = userMessage.slice(0, 30);
+  }
+
+  currentChat.messages.push(userHTML, aiHTML);
+
+  localStorage.setItem(storageKey, JSON.stringify(chats));
+
+  renderHistory();
+
+});
 
   } catch {
 
@@ -452,3 +480,7 @@ return;
 recognition.start();
 
 }
+
+window.sendMessage = sendMessage;
+window.usePrompt = usePrompt;
+window.startVoice = startVoice;

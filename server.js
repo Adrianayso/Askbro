@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 // 🔐 API key from Render environment variables
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
-// Route for AI requests
+// Route for AI requests`
 app.post("/ask", async (req, res) => {
 
   const { message, username, context } = req.body;
