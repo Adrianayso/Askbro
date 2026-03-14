@@ -8,6 +8,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// TEST
+app.get("/", (req, res) => {
+  res.send("AskBro AI server is running.");
+});
+
 // 🔐 API key from Render environment variables
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
