@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../pictures/logo-short.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #0b0f19;
+  color: white;
+}
+
+/* ===== BRAND ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-long img {
+  width: 70px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.link {
+  text-decoration: none !important; 
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ===== TOP NAV ===== */
+.top-nav {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  border-bottom: 1px solid #1f2937;
+}
+
+
+.logo-long {
+  width: 50px;
+  transition: color 0.3s, opacity 0.3s, filter 0.3s;
+  cursor: pointer;
+}
+
+.logo-long:hover {
+  filter: brightness(10) sepia(10) hue-rotate(45deg);
+}
+
+.logo-long:active {
+  opacity: 0.7;
+}
+
+
+.nav-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+  padding-top: 10px;
+  margin-left: 24px;
+}
+
+.nav-title:hover {
+  color: #f1c40f;
+}
+
+.nav-title:active {
+  color: #a5870c;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #f1c40f;
+}
+
+.nav-links a:active {
+  opacity: 0.5;
+}
+
+/* ===== CENTER AREA ===== */
+.guest-container {
+  min-height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ===== CHAT CARD ===== */
+.chat-card {
+  width: 100%;
+  max-width: 720px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PROMPT */
+#prompt-title {
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* CHAT BOX */
+#chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #0b0f19;
+  border-radius: 14px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  font-size: 1em;
+}
+
+.chat-input input::placeholder {
+  color: #94a3b8;
+}
+
+.chat-input input:focus {
+  outline: none;
+}
+
+.chat-input button {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  background: #f1c40f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== MESSAGES ===== */
+.message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #2563eb;
+}
+
+.message.ai {
+  align-self: flex-start;
+  background: #1e293b;
+}
+
+/* ===== MOBILE TWEAKS ===== */
+@media (max-width: 600px) {
+  #prompt-title {
+    font-size: 1.4em;
+  }
+
+  .chat-card {
+    padding: 10px;
+  }
+
+  .chat-input {
+    padding: 8px;
+  }
+}
+
+/* PROMPTS */
+
+.prompt-suggestions{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.prompt-suggestions button{
+background:#1e293b;
+border:none;
+color:white;
+padding:10px 14px;
+border-radius:10px;
+cursor:pointer;
+font-size:14px;
+}
+
+.prompt-suggestions button:hover{
+background:#f1c40f;
+color:black;
+}
+
+
+/* MIC BUTTON */
+
+#voiceBtn{
+background:#1e293b;
+border:none;
+color:white;
+padding:12px;
+border-radius:12px;
+cursor:pointer;
+}
+
+#voiceBtn:hover{
+background:#f1c40f;
+color:black;
+}
+
+
+/* TYPING DOTS */
+
+.typing{
+display:flex;
+gap:6px;
+}
+
+.typing span{
+width:8px;
+height:8px;
+background:#f1c40f;
+border-radius:50%;
+animation:typing 1s infinite ease-in-out;
+}
+
+.typing span:nth-child(2){
+animation-delay:.2s;
+}
+
+.typing span:nth-child(3){
+animation-delay:.4s;
+}
+
+@keyframes typing{
+
+0%{opacity:.3;transform:translateY(0);}
+50%{opacity:1;transform:translateY(-4px);}
+100%{opacity:.3;transform:translateY(0);}
+
+}

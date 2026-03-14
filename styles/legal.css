@@ -1,0 +1,38 @@
+body {
+  background: #0b0f19;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+}
+
+.legal {
+  max-width: 800px;
+  margin: auto;
+  background: #111827;
+  padding: 40px;
+  border-radius: 14px;
+}
+
+h1 {
+  color: #f1c40f;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 25px;
+  color: #e5e7eb;
+}
+
+p {
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+a {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.back {
+  margin-top: 30px;
+}

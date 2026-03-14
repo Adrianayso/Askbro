@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AskBro</title>
+
+<link rel="icon" type="image/png" href="pictures/logo-icon.png">
+<link rel="stylesheet" href="styles/askbro-guest.css" />
+
+</head>
+
+<body>
+
+<header class="top-nav">
+
+<div class="brand">
+<a class="link" href="guest-chat.html">
+
+<div class="logo-long">
+<img src="pictures/logo-long.png" alt="AskBro Logo">
+</div>
+
+<div class="nav-title">AskBro</div>
+
+</a>
+</div>
+
+<nav class="nav-links">
+<a href="login.html">Login</a>
+<a href="guest-about.html">About</a>
+</nav>
+
+</header>
+
+
+<main class="guest-container">
+
+<div class="chat-card">
+
+<h1 id="prompt-title">What can I help you with, bro?</h1>
+
+<!-- PROMPTS -->
+<div class="prompt-suggestions">
+
+<button onclick="usePrompt('What is HTML?')">What is HTML?</button>
+
+<button onclick="usePrompt('Explain LAN vs WAN')">LAN vs WAN</button>
+
+<button onclick="usePrompt('What are variables in Python?')">Python Variables</button>
+
+</div>
+
+<div id="chat-box"></div>
+
+<div class="chat-input">
+
+<button id="voiceBtn" onclick="startVoice()" title="Voice input">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
+<rect x="9" y="2" width="6" height="12" rx="3"></rect>
+<path d="M5 10a7 7 0 0 0 14 0"></path>
+<line x1="12" y1="19" x2="12" y2="22"></line>
+<line x1="8" y1="22" x2="16" y2="22"></line>
+
+</svg>
+
+</button>
+
+<input type="text" id="user-input" placeholder="Ask me anything..." />
+
+<button id="send-btn">Send</button>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="js/askbro.js"></script>
+
+</body>
+</html>

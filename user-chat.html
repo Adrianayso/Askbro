@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>AskBro</title>
+
+<link rel="icon" type="image/png" href="pictures/logo-icon.png">
+<link rel="stylesheet" href="styles/user-chat.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+
+<img 
+src="pictures/logo-long.png"
+class="sidebar-logo"
+id="logoHome"
+alt="AskBro Logo"
+>
+
+</div>
+
+<button id="newChatBtn" class="new-chat-btn">
++ New Chat
+</button>
+
+<div class="chat-history" id="chatHistory"></div>
+
+<div class="user-name" id="userName"></div>
+
+</aside>
+
+
+<!-- MAIN -->
+<div class="main" id="main">
+
+<header class="top-nav">
+
+<button id="menuToggle" class="menu-toggle">
+☰
+</button>
+
+<nav class="nav-links">
+<a href="user-about.html">About</a>
+<a href="guest-chat.html" onclick="logout()">Logout</a>
+</nav>
+
+</header>
+
+
+<div class="chat-wrapper">
+
+<div class="chat-card">
+
+<h1 id="prompt-title">
+What can I help you with, bro?
+</h1>
+
+
+<!-- SUGGESTED PROMPTS -->
+<div class="prompt-suggestions">
+
+<button onclick="usePrompt('What is HTML?')">
+What is HTML?
+</button>
+
+<button onclick="usePrompt('Explain LAN vs WAN')">
+LAN vs WAN
+</button>
+
+<button onclick="usePrompt('What are variables in Python?')">
+Python Variables
+</button>
+
+</div>
+
+
+<div id="chat-box"></div>
+
+
+<div class="chat-input">
+
+<button id="voiceBtn" onclick="startVoice()" title="Voice input">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
+<path d="M12 1v11"></path>
+<rect x="8" y="1" width="8" height="12" rx="4"></rect>
+<path d="M5 10a7 7 0 0 0 14 0"></path>
+<line x1="12" y1="19" x2="12" y2="23"></line>
+<line x1="8" y1="23" x2="16" y2="23"></line>
+
+</svg>
+
+</button>
+
+<input
+type="text"
+id="userInput"
+placeholder="Ask me anything..."
+>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
