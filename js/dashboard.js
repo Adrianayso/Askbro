@@ -457,6 +457,12 @@ const transcript = event.results[0][0].transcript;
 
 input.value = transcript;
 
+// hide prompts when using voice
+const prompts = document.querySelector(".prompt-suggestions");
+if(prompts){
+  prompts.style.display = "none";
+}
+
 // automatically send after speaking
 sendMessage();
 
