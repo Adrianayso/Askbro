@@ -64,9 +64,10 @@ function createNewChat() {
 
   // SHOW PROMPTS AGAIN
   const prompts = document.querySelector(".prompt-suggestions");
-  if (prompts) {
-    prompts.style.display = "flex";
-  }
+
+if (prompts && chatBox.innerHTML.trim() === "") {
+  prompts.style.display = "flex";
+}
 
 }
 
@@ -453,6 +454,12 @@ recognition.interimResults = false;
 
 recognition.onresult = function(event){
 
+const mic = document.getElementById("voiceBtn");
+if(mic){
+mic.style.background = "#1e293b";
+mic.style.color = "white";
+}
+
 const transcript = event.results[0][0].transcript;
 
 input.value = transcript;
@@ -478,9 +485,17 @@ console.log("Voice error:", event.error);
 
 function startVoice(){
 
+const mic = document.getElementById("voiceBtn");
+
 if(!recognition){
 alert("Voice recognition not supported in this browser.");
 return;
+}
+
+// turn mic yellow
+if(mic){
+mic.style.background = "#f1c40f";
+mic.style.color = "black";
 }
 
 recognition.start();
