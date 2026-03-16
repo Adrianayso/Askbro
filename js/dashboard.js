@@ -243,8 +243,12 @@ async function sendMessage() {
   if (prompts) prompts.style.display = "none";
 
   if (activeChatIndex === null) {
-    createNewChat();
-  }
+  createNewChat();
+
+  // FORCE hide prompts after new chat
+  const prompts = document.querySelector(".prompt-suggestions");
+  if (prompts) prompts.style.display = "none";
+}
 
   const currentChat = chats[activeChatIndex];
 
